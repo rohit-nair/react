@@ -1,7 +1,7 @@
 # react - *getting started*
 
 ## What's react
-> A javascript library for building user interfaces 
+A javascript library for building user interfaces 
 - Library not a framework
 - Does one job and "does well", building user interface
 - Declarative
@@ -107,7 +107,7 @@ avoid issues.
 instead of inline functions, recommended approach is to have methods
 
 
-## 2 - Working with Data
+## Working with Data
 
 Install react-devtools to analyze any react app.
 
