@@ -136,3 +136,79 @@ __History Location__
 - Support only for IE10+ and also missing from some other older stock brosers.
 (95% support in the wild)  
 - Works with server-render  
+
+## Forms
+- Maintain state in ControllerView at a parent level and pass state as props
+- Further wire `onChange` and other events by passing handlers as props
+- Use `componentWillMount` event to populate form as it happens before
+  render and hence prevents re-render
+- Can pass state as url paramets and use `props.params` property to set state
+  of the component
+- Register router with transition to as `student/:id` to pass student id as url
+  parameter and be available in transitioned page. Use `Link` to perform
+  transitions.
+- Implement validation by maintaining errors as state and passing it around as
+  props.
+
+## Flux
+- A pattern for unidierectional data flow
+- Centralized dispatcher
+
+![Unidirection data flow](flux.png)
+
+### 3 core flux concepts
+- Action: Describe user interaction in react component  
+    - Encapsulates app events
+    - Dispatchers exposes a method to trigger a dispatch to store with a
+      payload of data which is called action
+    - Action creaters are dispatcher helper methods which show all the actions
+      available
+    - Actions are triggered two places, user interaction, from server(page
+      load, errors etc)
+    - Action creators add types stored in constants file
+    - Action payload has following properties `{ actionType: <TYPE>, data: { ... }`
+- Dispatcher: Singleton registry (centralized list of callbacks)  
+    - All data flows through dispatcher,
+    - Singleton so only one dispatcher per app
+    - Dispatches action to stores, 
+    - stores registers callbacks for actions
+    - Makes application predictable
+    - Only stores should register callbacks with dispatcher
+- Store: Holds application data and reflects in UI
+    - Holds app state, logic and data retrieval
+    - Not a model as in MVC but contains models
+    - App can have single or multiple stores
+    - Uses Node's `EventEmitter` to let React View that app state has changed
+    - No setter methods
+    - Structure
+        - Extend `EventEmitter`
+        - Expose `addChangeListner` and `removeChangeListner`
+        - Method to `emitChange`
+- React View: UI
+
+> As an application grows, the dispatcher becomes more vital, as it can be used
+> to __manage dependencies between the stores__ by invoking the registered callbacks in a specific order. Stores can declaratively wait for other stores to finish updating, and then update themselves accordingly.
+
+#### Constants
+Keeps things organized
+Good place to see what app actually does
+
+#### Flux API
+- `register(function callback)`: store registers callback with dispatcher
+- `unregister(string id)`: store unregisters callback
+- `waitFor(array<string> ids)`: store specifies the order in which store should
+  update
+- `dispatch(object payload)`: action calls this method with an object that
+  needs to be sent to stores
+- `isDispatching()`: whether in middle of dispatching
+
+#### Flux vs Pub-Sub (Quite different)
+- Callbacks not subscribed to particular event (every payload is dispatched to
+  all registered callbacks)
+- Callbacks can be differed in whole or partially until other callbacks are executed.
+
+### Packages used
+lodash
+keymirror
+object-assign
+
