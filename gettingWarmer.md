@@ -154,7 +154,7 @@ __History Location__
 - A pattern for unidierectional data flow
 - Centralized dispatcher
 
-![Unidirection data flow](flux.png)
+![Unidirection data flow](./img/flux.png)
 
 ### 3 core flux concepts
 - Action: Describe user interaction in react component  

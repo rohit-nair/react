@@ -28,6 +28,8 @@
 - No dispatcher in redux, reducers
 - With `react-redux` library components don't have to subscribe to stores
 
+![Flux vs Redux](./img/flux_redux.png)
+
 
 ## Getting warmer
 
