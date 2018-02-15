@@ -208,7 +208,7 @@ Good place to see what app actually does
 - Callbacks can be differed in whole or partially until other callbacks are executed.
 
 ### Packages used
-lodash
-keymirror
-object-assign
+lodash  
+keymirror  
+object-assign  
 
