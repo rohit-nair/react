@@ -1,8 +1,8 @@
 # react
 *Getting started with React*
 
-Notes from [Pluralsight's excellent *react path*
-course](https://app.pluralsight.com/paths/skills/react).
+Notes from [Pluralsight's excellent __React__ path
+courses.](https://app.pluralsight.com/paths/skills/react).
 
 Notes are arranged from beginner to advanced.
 
